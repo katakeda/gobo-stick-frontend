@@ -5,8 +5,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import googleSignInButton from './btn_google_light_pressed_ios.svg';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -32,6 +33,17 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(3, 0, 2),
         textTransform: 'none',
     },
+    googleSignInButton: {
+        padding: 0,
+        backgroundColor: '#FFFFFF',
+    },
+    googleSignInText: {
+        fontFamily: 'Roboto',
+        fontSize: '14px',
+        color: 'rgba(0, 0, 0, 0.54)',
+        padding: '0 10px 0 0',
+        textTransform: 'none',
+    }
 }));
 
 const SignIn: React.FC = () => {
@@ -74,12 +86,13 @@ const SignIn: React.FC = () => {
                         className={classes.submit}
                     >Sign In</Button>
                     <Button
-                        fullWidth
-                        href="http://localhost:8000/api/sign-in-with-google"
                         variant="contained"
-                        color="default"
-                        className={classes.submit}
-                    >Sign in with Google</Button>
+                        href="http://localhost:8888/api/sign-in-with-google"
+                        className={classes.googleSignInButton}
+                    >
+                        <img src={googleSignInButton} alt="Google Sign In"/>
+                        <Typography variant='button' className={classes.googleSignInText}>Sign in with Google</Typography>
+                    </Button>
                 </form>
             </div>
         </Container>
